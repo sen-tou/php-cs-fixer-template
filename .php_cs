@@ -1,6 +1,8 @@
 <?php
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
+    ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
@@ -16,9 +18,8 @@ return PhpCsFixer\Config::create()
         'phpdoc_types_order' => false,
         'single_line_throw' => false,
     ])
-    ->setCacheFile(__DIR__.'/.php_cs.cache')
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->exclude(array('.git', 'node_modules', 'var', 'bin'))
+            ->exclude(['var', '*.cache', 'node_modules', '.git'])
             ->in(__DIR__)
     );
