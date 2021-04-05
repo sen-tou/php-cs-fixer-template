@@ -1,42 +1,24 @@
 <?php
 
 return PhpCsFixer\Config::create()
-    ->setRiskyAllowed(true)
-    ->setRules(
-        [
-            '@Symfony' => true,
-            '@Symfony:risky' => true,
-            'array_syntax' => ['syntax' => 'short'],
-            'dir_constant' => true,
-            'heredoc_to_nowdoc' => true,
-            'linebreak_after_opening_tag' => true,
-            'modernize_types_casting' => true,
-            'no_multiline_whitespace_before_semicolons' => true,
-            'no_unreachable_default_argument_value' => true,
-            'no_useless_else' => true,
-            'no_useless_return' => true,
-            'ordered_class_elements' => true,
-            'ordered_imports' => true,
-            'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
-            'phpdoc_order' => true,
-            'doctrine_annotation_braces' => true,
-            'doctrine_annotation_indentation' => true,
-            'doctrine_annotation_spaces' => true,
-            'psr4' => true,
-            'no_php4_constructor' => true,
-            'no_short_echo_tag' => true,
-            'semicolon_after_instruction' => true,
-            'align_multiline_comment' => true,
-            'doctrine_annotation_array_assignment' => true,
-            'list_syntax' => ["syntax" => "short"],
-            'phpdoc_types_order' => ['null_adjustment'=> 'always_last'],
-            'single_line_comment_style' => true,
-            'array_indentation' => true,
-        ]
-    )
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'class_definition' => false,
+        'concat_space' => ['spacing' => 'one'],
+        'function_declaration' => ['closure_function_spacing' => 'none'],
+        'native_constant_invocation' => true,
+        'native_function_casing' => true,
+        'native_function_invocation' => true,
+        'no_superfluous_phpdoc_tags' => ['allow_mixed' => true, 'remove_inheritdoc' => true],
+        'ordered_imports' => true,
+        'phpdoc_align' => ['align' => 'left'],
+        'phpdoc_types_order' => false,
+        'single_line_throw' => false,
+    ])
     ->setCacheFile(__DIR__.'/.php_cs.cache')
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->exclude(array('.git', 'vendor', 'node_modules'))
+            ->exclude(array('.git', 'node_modules', 'var', 'bin'))
             ->in(__DIR__)
     );
