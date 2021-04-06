@@ -20,6 +20,7 @@ return $config
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->exclude(['var', '*.cache', 'node_modules', '.git'])
+            ->exclude(['var', 'node_modules', '.git'])
+            ->notPath('*.cache')
             ->in(__DIR__)
     );
